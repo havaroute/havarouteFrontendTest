@@ -1,0 +1,106 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white; /* White background */
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Overlay with centered card */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.card {
+  text-align: center;
+  z-index: 20;
+}
+
+.title {
+  font-size: 7rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.launch-btn {
+  padding: 0.7rem 1.5rem;
+  font-size: 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: black;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.launch-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Blast container for falling particles */
+#blast-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: hsl(var(--hue), 80%, 60%);
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-10vh);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+
+/* Blast particles */
+.particle {
+  position: fixed;
+  top: -20px; /* start from above screen */
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.7);
+    opacity: 0;
+  }
+}

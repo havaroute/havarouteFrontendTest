@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HavaMap - Responsive Travel Map</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+
+   <link rel="stylesheet" href="/Havaroute/landing/styles.css" />
+   <link rel="stylesheet" href="map.css" />
+
+</head>
+<body>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Havaroute Header</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+
+ <!-- Top Nav -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#">
+        <img src="/Havaroute/landing/assets/havaroute_logo_page-0002-removebg-preview.png" alt="HavaRoute Logo" class="brand-logo" />
+      </a>
+
+      <div class="">
+      </div>
+
+      <nav class="links">
+        <a href="#">Destinations</a>
+        <a href="/map/map.html">Havamap</a>
+        <a href="#">Community</a>
+        <a href="#">Packages</a>
+      </nav>
+
+      <div class="cta">
+        <button class="btn btn--ghost">Login</button>
+        <button class="btn btn--primary">Get started</button>
+      </div>
+    </div>
+  </header>
+
+<!-- New Mobile Header for small screens -->
+<!-- Mobile Header (unchanged style, but added IDs for script) -->
+<div class="md:hidden relative z-50">
+  <!-- Floating icons on top right -->
+  <div class="absolute top-4 right-4 flex space-x-2">
+    <!-- Search Icon -->
+    <div id="mobileSearchIcon" class="w-10 h-10 bg-white text-[#e40055] flex items-center justify-center rounded-full shadow-md cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+      </svg>
+    </div>
+
+    
+    <!-- Other Icons -->
+    <div class="w-10 h-10 bg-white text-[#e40055] flex items-center justify-center rounded-full shadow-md cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.35 6.75A1 1 0 007 21h10a1 1 0 001-1l-1.35-6.75M10 21a1 1 0 102 0" />
+      </svg>
+    </div>
+
+    <div class="w-10 h-10 bg-white text-[#e40055] flex items-center justify-center rounded-full shadow-md cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A11.955 11.955 0 0112 15c2.489 0 4.797.762 6.879 2.056M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Search Input (hidden initially) -->
+  <div id="mobileSearchContainer" class="absolute top-20 w-full px-4 hidden z-50">
+    <input
+      type="text"
+      placeholder="Where are you traveling to?"
+      id="mobileSearchInput"
+      class="w-full px-4 py-2 rounded-full outline-none text-gray-700 shadow"
+      oninput="showMobileSuggestions()"
+    />
+    <div id="mobileSuggestionsBox" class="absolute w-full mt-2 bg-white rounded-lg shadow-lg z-50 hidden">
+      <!-- Suggestions here -->
+    </div>
+  </div>
+
+  <!-- Logo -->
+  <div class="absolute bottom-4 left-4">
+    <img src="/map/icons/havalogo.png" alt="Havaroute Logo" class="h-10">
+  </div>
+</div>
+
+
+  <!-- Optional logo bottom-left or center -->
+  <div class="absolute bottom-4 left-4">
+    <img src="/map/icons/havalogo.png" alt="Havaroute Logo" class="h-10">
+  </div>
+</div>
+
+
+</body>
+</html>
+
+
+  <div id="map"></div>
+  <!-- Toggle Drawer Button -->
+<div id="toggleDrawer" onclick="toggleDrawer()">
+  <div class="chevron"></div>
+  <span>View a list of destinations</span>
+</div>
+
+<!-- Slide-up Destination Drawer -->
+<div id="destinationDrawer" class="drawer">
+  <div class="drawer-content">
+
+    <div class="destination-header">
+  <span class="section-toggle"></span>
+ <h2 class="text-center font-bold text-xl" data-i18n="destinationsTitle">HavaRoute Destinations</h2>
+<p class="text-center text-gray-500" data-i18n="subheading">+100 destinations +300 activities</p>
+
+
+
+
+
+
+</div>
+
+    <table>
+      <thead><tr>
+        <th>District</th><th>Destinations</th><th>Activities</th>
+      </tr></thead>
+      <tbody>
+        <!-- Wayanad (3 taluks) -->
+        <tr class="clickable" data-district="wayanad"><td>Wayanad </td><td>12</td><td>34</td></tr>
+        <tr class="taluk-row wayanad" style="display:none;"><td colspan="3">
+          <a href="/Wayanad/mananthavady.html">Mananthavady <span class="spot-count">(2)</span></a>,
+          <a href="vythiri.html">Vythiri <span class="spot-count">(2)</span></a>,
+          <a href="sulthanbathery.html">Sulthan Bathery <span class="spot-count">(2)</span></a>
+        </td></tr>
+
+        <!-- Kannur (5 taluks) -->
+        <tr class="clickable" data-district="kannur"><td>Kannur </td><td>7</td><td>16</td></tr>
+        <tr class="taluk-row kannur" style="display:none;"><td colspan="3">
+          <a href="kannur.html">Kannur</a>,
+          <a href="thaliparamba.html">Thaliparamba <span class="spot-count">(2)</span></a>,
+          <a href="thalassery.html">Thalassery <span class="spot-count">(2)</span></a>,
+          <a href="iritty.html">Iritty <span class="spot-count">(2)</span></a>,
+          <a href="payyannur.html">Payyannur <span class="spot-count">(2)</span></a>
+        </td></tr>
+
+        <!-- Kottayam (5 taluks) -->
+        <tr class="clickable" data-district="kottayam"><td>Kottayam </td><td>6</td><td>14</td></tr>
+        <tr class="taluk-row kottayam" style="display:none;"><td colspan="3">
+          <a href="changanassery.html">Changanassery <span class="spot-count">(2)</span></a>,
+          <a href="kanjirappally.html">Kanjirappally <span class="spot-count">(2)</span></a>,
+          <a href="kottayam.html">Kottayam <span class="spot-count">(2)</span></a>,
+          <a href="meenachil.html">Meenachil <span class="spot-count">(2)</span></a>,
+          <a href="vaikom.html">Vaikom <span class="spot-count">(2)</span></a>
+        </td></tr>
+
+        <!-- Idukki (5 taluks) -->
+        <tr class="clickable" data-district="idukki"><td>Idukki </td><td>8</td><td>20</td></tr>
+        <tr class="taluk-row idukki" style="display:none;"><td colspan="3">
+          <a href="thodupuzha.html">Thodupuzha <span class="spot-count">(2)</span></a>,
+          <a href="idukki_taluk.html">Idukki <span class="spot-count">(2)</span></a>,
+          <a href="devikulam.html">Devikulam <span class="spot-count">(2)</span></a>,
+          <a href="udumbanchola.html">Udumbanchola <span class="spot-count">(2)</span></a>,
+          <a href="peerumade.html">Peerumade <span class="spot-count">(2)</span></a>
+        </td></tr>
+
+        <!-- Ernakulam (7 taluks) -->
+        <tr class="clickable" data-district="ernakulam"><td>Ernakulam </td><td>10</td><td>26</td></tr>
+        <tr class="taluk-row ernakulam" style="display:none;"><td colspan="3">
+          <a href="paravur.html">Paravur <span class="spot-count">(2)</span></a>,
+          <a href="aluva.html">Aluva <span class="spot-count">(2)</span></a>,
+          <a href="kunnathunad.html">Kunnathunad <span class="spot-count">(2)</span></a>,
+          <a href="muvattupuzha.html">Muvattupuzha <span class="spot-count">(2)</span></a>,
+          <a href="kochi.html">Kochi <span class="spot-count">(2)</span></a>,
+          <a href="kanayannur.html">Kanayannur <span class="spot-count">(2)</span></a>,
+          <a href="kothamangalam.html">Kothamangalam <span class="spot-count">(2)</span></a>
+        </td></tr>
+
+        <!-- Thrissur (5 taluks) -->
+        <tr class="clickable" data-district="thrissur"><td>Thrissur </td><td>9</td><td>23</td></tr>
+        <tr class="taluk-row thrissur" style="display:none;"><td colspan="3">
+          <a href="thrissur.html">Thrissur <span class="spot-count">(2)</span></a>,
+          <a href="mukundapuram.html">Mukundapuram <span class="spot-count">(2)</span></a>,
+          <a href="talappilly.html">Talappilly <span class="spot-count">(2)</span></a>,
+          <a href="chavakkad.html">Chavakkad <span class="spot-count">(2)</span></a>,
+          <a href="kodungallur.html">Kodungallur <span class="spot-count">(2)</span></a>
+        </td></tr>
+
+
+         <!-- Palakkad (5 taluks) -->
+        <tr class="clickable" data-district="palakkad"><td>Palakkad </td><td>6</td><td>14</td></tr>
+        <tr class="taluk-row palakkad" style="display:none;">
+          <td colspan="3">
+            <a href="palakkad.html">Palakkad <span class="spot-count">(2)</span></a>,
+            <a href="ottappalam.html">Ottappalam <span class="spot-count">(2)</span></a>,
+            <a href="mannerkkad.html">Mannarkkad <span class="spot-count">(2)</span></a>,
+            <a href="chittur.html">Chittur <span class="spot-count">(2)</span></a>,
+            <a href="alathur.html">Alathur <span class="spot-count">(2)</span></a>
+          </td>
+        </tr>
+
+        <!-- Malappuram (6 taluks) -->
+        <tr class="clickable" data-district="malappuram"><td>Malappuram </td><td>7</td><td>17</td></tr>
+        <tr class="taluk-row malappuram" style="display:none;">
+          <td colspan="3">
+            <a href="ernad.html">Eranad <span class="spot-count">(2)</span></a>,
+            <a href="nilambur.html">Nilambur <span class="spot-count">(2)</span></a>,
+            <a href="perinthalmanna.html">Perinthalmanna <span class="spot-count">(2)</span></a>,
+            <a href="tirur.html">Tirur <span class="spot-count">(2)</span></a>,
+            <a href="tirurangadi.html">Tirurangadi <span class="spot-count">(2)</span></a>,
+            <a href="ponnani.html">Ponnani <span class="spot-count">(2)</span></a>
+          </td>
+        </tr>
+
+        <!-- Kozhikode (3 taluks) -->
+        <tr class="clickable" data-district="kozhikode"><td>Kozhikode </td><td>9</td><td>22</td></tr>
+        <tr class="taluk-row kozhikode" style="display:none;">
+          <td colspan="3">
+            <a href="kozhikode.html">Kozhikode <span class="spot-count">(2)</span></a>,
+            <a href="qulalandy.html">Quilandy <span class="spot-count">(2)</span></a>,
+            <a href="vadakara.html">Vadakara <span class="spot-count">(2)</span></a>
+          </td>
+        </tr>
+
+
+
+<!-- Thiruvananthapuram (6 taluks) -->
+        <tr class="clickable" data-district="thiruvananthapuram">
+          <td>Thiruvananthapuram </td><td>10</td><td>25</td>
+        </tr>
+        <tr class="taluk-row thiruvananthapuram" style="display:none;">
+          <td colspan="3">
+            <a href="thiruvananthapuram.html">Thiruvananthapuram <span class="spot-count">(2)</span></a>,
+            <a href="nedumangad.html">Nedumangad <span class="spot-count">(2)</span></a>,
+            <a href="chirayinkeezhu.html">Chirayinkeezhu <span class="spot-count">(2)</span></a>,
+            <a href="kattakada.html">Kattakada <span class="spot-count">(2)</span></a>,
+            <a href="neyyattinkara.html">Neyyattinkara <span class="spot-count">(2)</span></a>,
+            <a href="varkala.html">Varkala <span class="spot-count">(2)</span></a>
+          </td>
+        </tr>
+
+        <!-- Kollam (6 taluks) -->
+        <tr class="clickable" data-district="kollam">
+          <td>Kollam </td><td>8</td><td>20</td>
+        </tr>
+        <tr class="taluk-row kollam" style="display:none;">
+          <td colspan="3">
+            <a href="kollam.html">Kollam <span class="spot-count">(2)</span></a>,
+            <a href="karunagappally.html">Karunagappally <span class="spot-count">(2)</span></a>,
+            <a href="kunnathur.html">Kunnathur <span class="spot-count">(2)</span></a>,
+            <a href="kottarakkara.html">Kottarakkara <span class="spot-count">(2)</span></a>,
+            <a href="punalur.html">Punalur <span class="spot-count">(2)</span></a>,
+            <a href="pathanapuram.html">Pathanapuram <span class="spot-count">(2)</span></a>
+          </td>
+        </tr>
+
+        <!-- Pathanamthitta (5 taluks) -->
+        <tr class="clickable" data-district="pathanamthitta">
+          <td>Pathanamthitta </td><td>6</td><td>15</td>
+        </tr>
+        <tr class="taluk-row pathanamthitta" style="display:none;">
+          <td colspan="3">
+            <a href="ador.html">Adoor <span class="spot-count">(2)</span></a>,
+            <a href="konni.html">Konni <span class="spot-count">(2)</span></a>,
+            <a href="kozhenchery.html">Kozhencherry <span class="spot-count">(2)</span></a>,
+            <a href="ranni.html">Ranni <span class="spot-count">(2)</span></a>,
+            <a href="mallappally.html">Mallappally <span class="spot-count">(2)</span></a>,
+            <a href="thiruvalla.html">Thiruvalla <span class="spot-count">(2)</span></a>
+          </td>
+        </tr>
+
+        <!-- Alappuzha (6 taluks) -->
+        <tr class="clickable" data-district="alappuzha">
+          <td>Alappuzha </td><td>7</td><td>18</td>
+        </tr>
+        <tr class="taluk-row alappuzha" style="display:none;">
+          <td colspan="3">
+            <a href="cherthala.html">Cherthala <span class="spot-count">(2)</span></a>,
+            <a href="ambalappuzha.html">Ambalappuzha <span class="spot-count">(2)</span></a>,
+            <a href="kuttanad.html">Kuttanad <span class="spot-count">(2)</span></a>,
+            <a href="karthikappally.html">Karthikappally <span class="spot-count">(2)</span></a>,
+            <a href="chengannur.html">Chengannur <span class="spot-count">(2)</span></a>,
+            <a href="mavelikkara.html">Mavelikkara <span class="spot-count">(2)</span></a>
+          </td>
+        </tr>
+
+        <!-- Kasaragod (4 taluks) -->
+        <tr class="clickable" data-district="kasaragod">
+          <td>Kasaragod </td><td>6</td><td>15</td>
+        </tr>
+        <tr class="taluk-row kasaragod" style="display:none;">
+          <td colspan="3">
+            <a href="kasaragod.html">Kasaragod <span class="spot-count">(2)</span></a>,
+            <a href="hosdurg.html">Hosdurg <span class="spot-count">(2)</span></a>,
+            <a href="manjeshwaram.html">Manjeshwaram <span class="spot-count">(2)</span></a>,
+            <a href="vellarikundu.html">Vellarikundu <span class="spot-count">(2)</span></a>
+          </td>
+        </tr>
+
+
+        
+        
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+    <!-- Add this inside the .drawer-content, after the </table> -->
+
+
+  </div>
+</div>
+
+  
+
+ <!-- ✅ Load this FIRST: Your initMap function -->
+<script src="map.js"></script>
+
+<!-- ✅ Load this LAST: Google Maps API with callback to initMap -->
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4n1FVWHDnnFWRt5Lhur6JF2Kl1EJykeo&callback=initMap">
+</script>
+
+<!-- PapaParse for CSV parsing (can stay as is) -->
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+
+
+
+</body>
+</html>

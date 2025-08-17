@@ -1,0 +1,197 @@
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+#map {
+  height: calc(100vh - 72px);
+  width: 100%;
+}
+
+.bottom-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #6c63ff;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search-bar {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .bottom-button {
+    width: 90%;
+    font-size: 0.95rem;
+  }
+}
+
+/* Toggle Drawer Button */
+#toggleDrawer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: 500;
+  color: #333;
+  border-top: 1px solid #ddd;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#toggleDrawer .chevron {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+/* Slide-up Drawer */
+.drawer {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+  transition: bottom 0.4s ease;
+  z-index: 99;
+  overflow-y: auto;
+}
+
+.drawer.open {
+  bottom: 50px; /* leaves space for the toggle button */
+}
+
+.drawer-content {
+  padding: 0 20px 20px;
+  background-color: white;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.destination-header {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.destination-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.destination-header .stats {
+  color: #888;
+  font-size: 14px;
+}
+
+.drawer-content a {
+  color: #6c63ff;
+  font-weight: 500;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.drawer-content a:hover {
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+  font-size: 16px;
+}
+
+th {
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+}
+
+tr.clickable {
+  cursor: pointer;
+}
+
+.activities-button {
+  display: inline-block;
+  background-color: #6c63ff;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.activities-button:hover {
+  background-color: #2ed34f;
+}
+
+@media (max-width: 600px) {
+  .activities-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Language Dropdown */
+.lang-dropdown button {
+  font-size: 0.9rem;
+}
+
+.lang-menu {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(16,24,40,.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.lang-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lang-menu li button {
+  width: 100%;
+  padding: 10px 14px;
+  background: white;
+  border: none;
+  text-align: left;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.lang-menu li button:hover {
+  background: #f3f4f6;
+}
