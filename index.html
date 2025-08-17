@@ -575,7 +575,88 @@
           </div>
         </div>
       </footer>
+      <!-- Mobile Blocker -->
+      <div id="mobile-blocker">
+        <div class="blocker-card">
+          <div class="icon">🖥️</div>
+          <h2>Desktop Only</h2>
+          <p>This site is currenlty optimized for larger screens only (test server v1).<br>
+            👉 Please use <strong>Desktop view</strong> to continue.</p>
+          <small class="copyright-info">&copy;2025 Havaroute</small>
+        </div>
+      </div>
 
+      <style>
+        #mobile-blocker {
+          position: fixed;
+          inset: 0;
+          background: linear-gradient(135deg, #f9fafb, #e5e7eb);
+          display: none;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          z-index: 9999;
+          padding: 2rem;
+        }
+
+        .blocker-card {
+          background: #fff;
+          border-radius: 1.5rem;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+          padding: 2rem;
+          max-width: 400px;
+          width: 90%;
+          font-family: "Inter", sans-serif;
+          color: #111;
+          animation: fadeIn 0.4s ease-out;
+        }
+
+        .blocker-card .icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+        }
+
+        .blocker-card h2 {
+          font-size: 1.8rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .blocker-card p {
+          font-size: 1rem;
+          color: #555;
+          line-height: 1.5;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .copyright-info {
+          color: #555;
+        }
+      </style>
+
+      <script>
+        function checkDevice() {
+          const blocker = document.getElementById("mobile-blocker");
+          if (window.innerWidth <= 1024) {
+            blocker.style.display = "flex";
+            document.body.style.overflow = "hidden";
+          } else {
+            blocker.style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        }
+        checkDevice();
+        window.addEventListener("resize", checkDevice);
+      </script>
 
 
       <script src="script.js"></script>
