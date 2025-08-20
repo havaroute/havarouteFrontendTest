@@ -1,665 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HavaRoute — Navigate Your Next Escape</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Under Development</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      padding: 2rem 5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      animation: bounce 2s infinite;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .emoji {
+        font-size: 120px;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      background: #25d366;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .whatsapp-btn:hover {
+      background: #20bd5c;
+      transform: scale(1.05);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+      flex-shrink: 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Floating shapes */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .circle.small { width: 50px; height: 50px; bottom: 8%; left: 12%; }
+    .circle.medium { width: 90px; height: 90px; top: 12%; right: 8%; }
+    .circle.large { width: 140px; height: 140px; bottom: 18%; right: 22%; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.8rem 1.2rem;
+      }
+      .whatsapp-btn {
+        font-size: 0.95rem;
+        padding: 12px 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+      .whatsapp-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px;
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Top Nav -->
-  <header class="nav">
-    <div class="nav__inner">
-      <a class="brand" href="#">
-        <img src="assets/havaroute_logo_page-0002-removebg-preview.png" alt="HavaRoute Logo" class="brand-logo" />
-      </a>
-
-      <div class="">
-      </div>
-
-      <nav class="links">
-        <a href="#">Destinations</a>
-        <a href="/map/map.html">Havamap</a>
-        <a href="#">Community</a>
-        <a href="#">Packages</a>
-      </nav>
-
-      <div class="cta">
-        <button class="btn btn--ghost">Login</button>
-        <button class="btn btn--primary">Get started</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero__inner">
-      <div class="hero__copy">
-        <h1 class="hero__title">
-          Navigate Your Next<br />
-          <span class="tight">Escape</span>
-        </h1>
-
-        <p class="hero__desc">
-          Turn your next escape into an experience worth remembering. With AI-powered mapping, tailored suggestions, and
-          seamless planning, adventure is just one click away
-        </p>
-
-        <button class="cta-big">
-          <span>Exclusive features</span>
-        </button>
-      </div>
-
-      <!-- Decorative world with animated pins -->
-      <div class="hero__art" aria-hidden="true">
-        <img src="assets/map.png" alt="World Map" class="hero-map" />
-      </div>
-    </div>
-  </section>
-
-
-  <section class="brands">
-    <div class="brand-slider">
-      <div class="brand-track">
-        <!-- Your logos (set 1) -->
-        <img src="./logo/banasura jungleresourt.png" alt="Banasura">
-        <img src="./logo/Banasura_Logo.png" alt="Banasura">
-        <img src="./logo/coffeegreens.png" alt="Coffee Greens">
-        <img src="./logo/dazzle resort.webp" alt="Dazzle Resort">
-        <img src="./logo/flora vythiri.png" alt="Flora Vythiri">
-        <img src="./logo/jungle park resort.png" alt="Jungle Park">
-        <img src="./logo/lakeroseresourt.png" alt="Lake Rose">
-        <img src="./logo/mount xanadu resort logo.png" alt="Mount Xanadu">
-        <img src="./logo/saptha resort.png" alt="Saptha Resort">
-        <img src="./logo/the lavander resort.png" alt="Lavander Resort">
-        <img src="./logo/the serenity resort.png" alt="Serenity Resort">
-        <img src="./logo/vistara resort.png" alt="Vistara Resort">
-        <img src="./logo/wayanadsilvergreen.png" alt="Silvergreen Resort">
-        <img src="./logo/wayanadwildliferesourt.png" alt="Wildlife Resort">
-        <img src="./logo/willowresourt.png" alt="Willow Resort">
-        <img src="./logo/windyard.png" alt="Windyard">
-
-        <!-- Duplicate the same set for infinite loop -->
-        <img src="./logo/banasura jungleresourt.png" alt="Banasura">
-        <img src="./logo/Banasura_Logo.png" alt="Banasura">
-        <img src="./logo/coffeegreens.png" alt="Coffee Greens">
-        <img src="./logo/dazzle resort.webp" alt="Dazzle Resort">
-        <img src="./logo/flora vythiri.png" alt="Flora Vythiri">
-        <img src="./logo/jungle park resort.png" alt="Jungle Park">
-        <img src="./logo/lakeroseresourt.png" alt="Lake Rose">
-        <img src="./logo/mount xanadu resort logo.png" alt="Mount Xanadu">
-        <img src="./logo/saptha resort.png" alt="Saptha Resort">
-        <img src="./logo/the lavander resort.png" alt="Lavander Resort">
-        <img src="./logo/the serenity resort.png" alt="Serenity Resort">
-        <img src="./logo/vistara resort.png" alt="Vistara Resort">
-        <img src="./logo/wayanadsilvergreen.png" alt="Silvergreen Resort">
-        <img src="./logo/wayanadwildliferesourt.png" alt="Wildlife Resort">
-        <img src="./logo/willowresourt.png" alt="Willow Resort">
-        <img src="./logo/windyard.png" alt="Windyard">
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section features" id="features">
-    <div class="container">
-      <h2 class="section-title">
-        Exclusive <span class="accent-italic">Features</span>
-      </h2>
-
-
-      <div class="feature-scroll">
-        <div class="feature-grid">
-          <!-- Card 1 -->
-          <article class="feature-card">
-            <div class="badge badge--orange">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M12 2a7 7 0 0 0-7 7c0 4.13 6.11 12.17 6.38 12.51.34.43.9.43 1.24 0C12.89 21.17 19 13.13 19 9a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" />
-              </svg>
-            </div>
-            <h3 class="feature-title">HavaMap</h3>
-            <p class="feature-desc">Uncover hidden trails & must-visit spots — start exploring now!</p>
-            <button class="feature-cta feature-cta--dark" onclick="location.href='nextpage.html'">Explore</button>
-
-          </article>
-
-          <!-- Card 2 -->
-          <article class="feature-card">
-            <div class="badge badge--blue">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm-1 14-4-4 1.41-1.41L11 12.17l5.59-5.58L18 8l-7 8Z" />
-              </svg>
-            </div>
-            <h3 class="feature-title">Check Status</h3>
-            <p class="feature-desc">Uncover hidden trails & must-visit spots — start exploring now!</p>
-            <button class="feature-cta feature-cta--dark" onclick="location.href='nextpage.html'">Explore</button>
-
-          </article>
-
-          <!-- Card 3 -->
-          <article class="feature-card">
-            <div class="badge badge--pink">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M4 5h16v2H4V5Zm0 6h10v2H4v-2Zm0 6h16v2H4v-2Zm12-8 4 3-4 3V9Z" />
-              </svg>
-            </div>
-            <h3 class="feature-title">Plan My Trip</h3>
-            <p class="feature-desc">Uncover hidden trails & must-visit spots — start exploring now!</p>
-            <button class="feature-cta feature-cta--dark" onclick="location.href='nextpage.html'">Explore</button>
-
-          </article>
-
-          <!-- Card 4 -->
-          <!-- Card: Find My Buddy -->
-          <article class="feature-card">
-            <div class="badge badge--teal"> <!-- you can change color class -->
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <!-- Location pin -->
-                <path fill="currentColor"
-                  d="M12 2a7 7 0 0 0-7 7c0 4.13 6.11 12.17 6.38 12.51.34.43.9.43 1.24 0C12.89 21.17 19 13.13 19 9a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" />
-                <!-- Small buddy (circle) -->
-                <circle cx="19" cy="8" r="2" fill="currentColor" />
-              </svg>
-            </div>
-
-            <h3 class="feature-title">Find My Buddy</h3>
-            <p class="feature-desc">Locate friends nearby & explore adventures together!</p>
-
-            <button class="feature-cta feature-cta--dark" onclick="location.href='nextpage.html'">Explore</button>
-
-          </article>
-
-
-          <!-- Card 5 -->
-          <article class="feature-card">
-            <div class="badge badge--purple">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <!-- Telegram paper plane logo -->
-                <path fill="currentColor"
-                  d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.44 6.65-1.35 6.37c-.1.45-.37.56-.74.35l-2.05-1.51-1 1c-.11.11-.21.21-.43.21l.15-2.13 3.88-3.5c.17-.15-.04-.24-.26-.09l-4.8 3.02-2.07-.65c-.45-.14-.46-.45.09-.67l8.1-3.12c.37-.14.69.09.57.65Z" />
-              </svg>
-            </div>
-
-            <h3 class="feature-title">Travel Bot</h3>
-            <p class="feature-desc">
-              Chat with your smart travel assistant on Telegram — get routes, tips & instant help.
-            </p>
-
-            <button class="feature-cta feature-cta--dark" onclick="location.href='nextpage.html'">Explore</button>
-
-          </article>
-
-
-
-
-
-
-
-        </div>
-      </div>
-  </section>
-  <section class="section recos" id="recommendations">
-    <div class="container recos__grid">
-      <!-- Left copy -->
-      <div class="recos__copy will-reveal" style="--delay:0ms">
-        <h2 class="recos__title">Personalized<br />Recommendations</h2>
-        <p class="recos__desc">
-          Smart&nbsp; trips, tailored just for you — based on your
-          mood and style
-        </p>
-
-        <a href="#" class="btn-xl">
-          <span>Explore all</span>
-        </a>
-      </div>
-
-      <!-- Right stacked cards -->
-      <div class="recos__cards will-reveal" style="--delay:140ms" aria-hidden="true">
-        <!-- Back card -->
-        <div class="rec-card rec-card--blue tilt" data-tilt>
-          <div class="rec-card__icon">≈</div>
-          <h3 class="rec-card__title">Beach</h3>
-          <p class="rec-card__text">Sun, sand & calm waters — unwind and relax.</p>
-          <div class="rec-card__dots">
-            <span></span><span></span><span></span>
-          </div>
-        </div>
-
-        <!-- Front card -->
-        <div class="rec-card rec-card--green tilt lift" data-tilt>
-          <div class="rec-card__icon">A</div>
-          <h3 class="rec-card__title">Adventure</h3>
-          <p class="rec-card__text">
-            Thrilling experiences and heart‑pumping activities await
-          </p>
-          <div class="rec-card__dots">
-            <span></span><span></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section deals" id="deals">
-    <div class="container">
-      <h2 class="deals__title">Featured</h2>
-      <p class="deals__subtitle">Packages & <span class="accent-italic">Deals</span></p>
-
-      <div class="deal-grid">
-        <!-- Card 1 -->
-        <article class="deal-card will-reveal" style="--delay:0ms">
-          <a href="#" class="deal-link" aria-label="Open Petra, Jordan package">
-            <figure class="deal-media">
-              <img src="./assets/treehouse.jpg" alt="Petra, Jordan" loading="lazy">
-              <figcaption>Treehouse, Wayanad</figcaption>
-            </figure>
-            <button class="deal-open" aria-hidden="true">↗</button>
-          </a>
-        </article>
-
-
-        <!-- Card 2 -->
-        <article class="deal-card will-reveal" style="--delay:120ms">
-          <a href="#" class="deal-link" aria-label="Open Kyoto, Japan package">
-            <figure class="deal-media">
-              <img src="./assets/wildlifesanctury.jpg" alt="Kyoto, Japan" loading="lazy">
-              <figcaption>Muthanga, Wayanad</figcaption>
-            </figure>
-            <button class="deal-open" aria-hidden="true">↗</button>
-          </a>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="deal-card will-reveal" style="--delay:240ms">
-          <a href="#" class="deal-link" aria-label="Open Petra, Jordan package">
-            <figure class="deal-media">
-              <img src="./assets/chembrapeak.jpg" alt="Petra, Jordan" loading="lazy">
-              <figcaption>Chembra, Wayanad</figcaption>
-            </figure>
-            <button class="deal-open" aria-hidden="true">↗</button>
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section journeys" id="journeys">
-    <h2 class="deals__title">Beyond the <span class="accent-italic">Map</span></h2>
-    <div class="container journeys__grid">
-      <!-- Left: Stacked images -->
-      <div class="journeys__images">
-        <img src="./assets/banasuraa.png" alt="Hills and mist" class="journey-img" />
-        <img src="./assets/ponmudi.jpg" alt="Trees and fog" class="journey-img" />
-        <img src="./assets/hill.jpg" alt="Grassy hills" class="journey-img" />
-      </div>
-      <!-- Right: Text block + button -->
-      <div class="journeys__text">
-        <p class="journeys__desc fade-on-scroll">
-          Hidden amidst Wayanad’s emerald hills, Meppadi offers <br>
-          misty trails, vibrant tea gardens, serene rivers, and <br>
-          peaceful escapes awaiting adventurous souls.
-        </p>
-
-        <p class="journeys__desc fade-on-scroll">
-          Banasura captivates with vast reservoirs,<br>
-          cascading waterfalls, scenic trekking paths,<br>
-          quiet hills, and unforgettable nature experiences<br>
-          for curious explorers seeking serenity.
-
-        </p>
-
-        <p class="journeys__desc fade-on-scroll">
-          Ponmudi’s winding roads, misty peaks, fragrant<br>
-          plantations, and tranquil landscapes <br>
-          invite travelers to discover calm,<br>
-          breathtaking adventures beyond<br>
-          ordinary destinations.
-        </p>
-
-
-        <a class="journeys__btn" href="#">Explore</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section latest-hero" id="latest">
-    <div class="container">
-      <!-- Title -->
-      <h2 class="latest-title">
-        Latest <span class="accent-italic">News</span>
-      </h2>
-
-      <!-- Lead story -->
-      <div class="lead-grid will-reveal" style="--delay:0ms">
-        <figure class="lead-media">
-          <img src="./assets/newsfirst.jpg" alt="Scenic view of Wayanad hills at sunrise">
-        </figure>
-
-        <div class="lead-copy">
-          <div class="lead-kicker">Travel Insights</div>
-          <h3 class="lead-head"> HavaRoute helps travelers<br> uncover hidden gems with<br> smart routes and local
-            insights </h3>
-          <div class="lead-meta">Hera John · 25 Jan 2025</div>
-        </div>
-      </div>
-
-      <!-- News row -->
-      <div class="news-row">
-        <!-- Card 1 -->
-        <article class="news-mini will-reveal" style="--delay:120ms">
-          <div class="mini-media">
-            <img src="./assets/hiddenwaterfall.jpg" alt="Traveler exploring Wayanad forest trail">
-          </div>
-          <div class="mini-copy">
-            <div class="mini-kicker">Local Insights</div>
-            <h4 class="mini-head">
-              Discover Wayanad’s hidden waterfalls and spice gardens with guided eco-tours.
-            </h4>
-            <div class="mini-meta">Hera John · 25 Jan 2025</div>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="news-mini will-reveal" style="--delay:220ms">
-          <div class="mini-media">
-            <img src="./assets/homestay.jpg" alt="Local homestay in Wayanad">
-          </div>
-          <div class="mini-copy">
-            <div class="mini-kicker">Community Travel</div>
-            <h4 class="mini-head">
-              Experience authentic Wayanad life through homestays and local cultural events.
-            </h4>
-            <div class="mini-meta">Hera John · 25 Jan 2025</div>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="news-mini will-reveal" style="--delay:320ms">
-          <div class="mini-media">
-            <img src="./assets/get (1).jpeg" alt="Tea plantations of Wayanad">
-          </div>
-          <div class="mini-copy">
-            <div class="mini-kicker">Travel Highlights</div>
-            <h4 class="mini-head">
-              Trek through tea plantations and enjoy breathtaking views across Wayanad’s hills.
-            </h4>
-            <div class="mini-meta">Hera John · 25 Jan 2025</div>
-          </div>
-        </article>
-      </div>
-
-
-
-      <section class="section testimonials" id="testimonials">
-        <div class="container">
-          <h2 class="testimonials__title">
-            Reviews &nbsp;<span class="accent-italic">Testimonials</span>
-          </h2>
-          <div class="testimonial-grid">
-            <!-- Card 1 -->
-            <div class="testimonial-card">
-              <div class="testimonial-head">
-                <span class="testimonial-avatar">
-                  <img src="https://img.icons8.com/ios-filled/50/808080/user.png" alt="user icon">
-                </span>
-                <div>
-                  <span class="testimonial-name">Alex Carter</span>
-                  <span class="testimonial-handle">@alextech</span>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                Started using HavaRoute to plan my weekend escapes, and within just 2 weeks, discovered 5 hidden gems
-                I’d never have found on my own! 🏝️<br>
-                The platform’s design is so user-friendly – easy to navigate, clean layout, and perfect for exploring
-                new destinations.<br>
-                Who knew trip planning could be this stress-free and fun? 🚤<br>
-                Check out @HavaRoute and start your next adventure!
-              </div>
-
-            </div>
-            <!-- Card 2 -->
-            <div class="testimonial-card">
-              <div class="testimonial-head">
-                <span class="testimonial-avatar">
-                  <img src="https://img.icons8.com/ios-filled/50/808080/user.png" alt="user icon">
-                </span>
-                <div>
-                  <span class="testimonial-name">Alex Carter</span>
-                  <span class="testimonial-handle">@alextech</span>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                Started using HavaRoute to plan my trips, and within just 2 weeks, discovered amazing hidden gems I
-                never knew about! 🌍<br>
-                The platform’s design is so user-friendly – easy to navigate, clean layout, and perfect for travel
-                planning.
-              </div>
-
-            </div>
-            <!-- Card 3 -->
-            <div class="testimonial-card">
-              <div class="testimonial-head">
-                <span class="testimonial-avatar">
-                  <img src="https://img.icons8.com/ios-filled/50/808080/user.png" alt="user icon">
-                </span>
-                <div>
-                  <span class="testimonial-name">John Doe</span>
-                  <span class="testimonial-handle">@johndoe</span>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                Started using HavaRoute to plan my weekend getaways, and within just 2 weeks, discovered 5 amazing
-                destinations I’d never found before! 🏕️<br>
-                The platform’s design is so user-friendly – easy to navigate, clean layout, and perfect for stress-free
-                travel planning.
-              </div>
-
-            </div>
-            <!-- Card 4 -->
-            <div class="testimonial-card">
-              <div class="testimonial-head">
-                <span class="testimonial-avatar">
-                  <img src="https://img.icons8.com/ios-filled/50/808080/user.png" alt="user icon">
-                </span>
-
-                <div>
-                  <span class="testimonial-name">Alex Carter</span>
-                  <span class="testimonial-handle">@alextech</span>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                Started using HavaRoute to plan my weekend escapes, and within just 2 weeks, discovered 5 hidden gems
-                I’d never have found on my own! 🗺️<br>
-                The platform’s design is so user-friendly – easy to navigate, clean layout, and perfect for exploring
-                new destinations.<br>
-                Who knew trip planning could be this stress-free and fun? 👨‍👩‍👧‍👦<br>
-                Check out @HavaRoute and start your next adventure!
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- COMMUNITY -->
-      <section class="section community" id="community">
-        <div class="container">
-          <h2 class="community__eyebrow">
-            Community <a href="#" class="join-link">Join</a>
-          </h2>
-        </div>
-
-        <div class="community-cta">
-          <!-- ambient orbs -->
-          <span class="orb orb--l"></span>
-          <span class="orb orb--r"></span>
-
-          <div class="community-cta__inner">
-            <p class="cta-sub">Have a route in mind.!</p>
-            <h3 class="cta-head">Let’s talk</h3>
-
-            <div class="cta-actions">
-              <a href="#contact" class="btn-cta">Start a conversation</a>
-              <a href="#features" class="btn-ghost">Explore features</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FOOTER -->
-      <footer class="site-footer" id="footer">
-        <div class="container footer-top">
-          <!-- Brand -->
-          <div class="f-brand">
-
-            <div class="f-name">Havaroute</div>
-            <p class="f-copy">
-              Our trusted travel companion — discover hidden gems, plan trips, and explore the world with ease
-            </p>
-            <div class="f-social">
-              <a href="https://www.instagram.com/havaroute/?hl=en" target="_blank" rel="noopener noreferrer"
-                aria-label="Follow us on Instagram">
-                <i class="fab fa-instagram"></i>
-                Follow us on Instagram
-              </a>
-            </div>
-          </div>
-
-          <!-- Columns -->
-          <div class="f-col">
-            <h4>Explore</h4>
-            <ul>
-              <li><a href="#features">Exclusive Features</a></li>
-              <li><a href="#deals">Packages & Deals</a></li>
-              <li><a href="#recommendations">Popular Destinations</a></li>
-              <li><a href="#features">HavaMap</a></li>
-            </ul>
-          </div>
-
-          <div class="f-col">
-            <h4>Travel Guides</h4>
-            <ul>
-              <li><a href="#news">Blog & Stories</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Support</a></li>
-              <li><a href="#">Payment Guide</a></li>
-            </ul>
-          </div>
-
-          <div class="f-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#community">Contact</a></li>
-              <li><a href="#">Partners</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <div class="container footer-bottom__inner">
-            <small>© 2025 HavaRoute. All rights reserved.</small>
-            <nav class="f-legal">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-              <a href="#">Cancellation Policy</a>
-            </nav>
-          </div>
-        </div>
-      </footer>
-      
-      <!-- Mobile Blocker -->
-      <div id="mobile-blocker">
-        <div class="blocker-card">
-          <div class="icon">🖥️</div>
-          <h2>Desktop Only</h2>
-          <p>This site is currenlty optimized for larger screens only (test server v1).</p>
-          <small class="copyright-info">&copy;2025 Havaroute</small>
-        </div>
-      </div>
-
-      <style>
-        #mobile-blocker {
-          position: fixed;
-          inset: 0;
-          background: linear-gradient(135deg, #f9fafb, #e5e7eb);
-          display: none;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          z-index: 9999;
-          padding: 2rem;
-        }
-
-        .blocker-card {
-          background: #fff;
-          border-radius: 1.5rem;
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-          padding: 2rem;
-          max-width: 400px;
-          width: 90%;
-          font-family: "Inter", sans-serif;
-          color: #111;
-          animation: fadeIn 0.4s ease-out;
-        }
-
-        .blocker-card .icon {
-          font-size: 3rem;
-          margin-bottom: 1rem;
-        }
-
-        .blocker-card h2 {
-          font-size: 1.8rem;
-          margin-bottom: 0.8rem;
-        }
-
-        .blocker-card p {
-          font-size: 1rem;
-          color: #555;
-          line-height: 1.5;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .copyright-info {
-          color: #555;
-        }
-      </style>
-
-      <script>
-        function checkDevice() {
-          const blocker = document.getElementById("mobile-blocker");
-          if (window.innerWidth <= 1024) {
-            blocker.style.display = "flex";
-            document.body.style.overflow = "hidden";
-          } else {
-            blocker.style.display = "none";
-            document.body.style.overflow = "auto";
-          }
-        }
-        checkDevice();
-        window.addEventListener("resize", checkDevice);
-      </script>
-
-
-      <script src="script.js"></script>
+  <div class="circle small"></div>
+  <div class="circle medium"></div>
+  <div class="circle large"></div>
+
+  <div class="container">
+    <h1 class="emoji">🚧</h1>
+    <h1>Website Under Development</h1>
+    <p>We’re working hard to launch something amazing.  
+    In the meantime, feel free to contact us!</p>
+
+    <a class="whatsapp-btn" href="https://wa.me/+918921822879" target="_blank">
+      <!-- WhatsApp Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <path d="M16.003 2.002c-7.732 0-14 6.268-14 14 0 2.47.642 4.889 1.862 7.017L2 30l7.188-1.829A13.94 13.94 0 0016.003 30c7.732 0 14-6.268 14-14s-6.268-13.998-14-13.998zm0 25.596a11.58 11.58 0 01-5.894-1.618l-.422-.251-4.268 1.087 1.14-4.159-.274-.427a11.57 11.57 0 01-1.779-6.136c0-6.416 5.218-11.634 11.635-11.634 3.111 0 6.037 1.212 8.234 3.41a11.54 11.54 0 013.401 8.224c0 6.417-5.219 11.634-11.643 11.634zm6.35-8.688c-.347-.174-2.05-1.012-2.367-1.128-.318-.117-.55-.174-.782.173-.233.348-.9 1.128-1.104 1.361-.204.233-.409.262-.756.087-.347-.174-1.466-.54-2.794-1.722-1.033-.922-1.73-2.059-1.933-2.407-.204-.348-.022-.536.152-.71.157-.157.348-.409.522-.613.174-.204.233-.348.348-.58.116-.233.058-.435-.029-.61-.087-.174-.782-1.89-1.07-2.588-.282-.68-.57-.586-.782-.598-.202-.009-.435-.011-.667-.011s-.61.087-.93.435c-.32.348-1.218 1.189-1.218 2.899s1.248 3.367 1.422 3.597c.174.233 2.456 3.75 5.95 5.258.833.358 1.48.573 1.986.732.833.265 1.591.228 2.189.138.667-.099 2.05-.836 2.338-1.644.288-.809.288-1.504.202-1.644-.087-.139-.318-.223-.667-.397z"/>
+      </svg>
+      Contact Us
+    </a>
+  </div>
 </body>
-
 </html>
